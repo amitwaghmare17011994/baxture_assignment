@@ -1,7 +1,9 @@
+import "reflect-metadata"
 import express, { Express, Request, Response } from "express";
 import multer from 'multer';
 import {textFileControllers} from './controllers/textFileControllers'
 import dotenv from "dotenv";
+import { AppDataSource } from "./db";
 
 dotenv.config();
 
@@ -27,6 +29,13 @@ app.post('/analyze/:fileId',textFileControllers.analyzeFileController)
 app.get('/results/:taskId',textFileControllers.fileResulstsController)
 
  
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+
+AppDataSource.initialize().then(async () => {
+  app.listen(port, () => {
+    console.log(`[server]: Server is running at http://localhost:${port}`);
+  });
+}).catch(()=>{
+  console.log('databse connection failed')
+})
+
+ 
