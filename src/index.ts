@@ -1,13 +1,19 @@
-import "reflect-metadata"
-import express, { Express, Request, Response } from "express";
+import 'reflect-metadata';
+
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import express, { Express } from 'express';
 import multer from 'multer';
-import {textFileControllers} from './controllers/textFileControllers'
-import dotenv from "dotenv";
-import { AppDataSource } from "./db";
+
+import { textFileControllers } from './controllers/textFileControllers';
+import { AppDataSource } from './db';
 
 dotenv.config();
 
+
+ 
 const app: Express = express();
+app.use(bodyParser.json());
 const port = process.env.PORT || 3000;
  
 

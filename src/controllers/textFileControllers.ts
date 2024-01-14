@@ -1,7 +1,14 @@
-import { Request, Response } from "express"
-import FileRepository from "../db/repositories/filesRepository";
-import { AppDataSource } from "../db";
-const fs = require('node:fs');
+import { Request, Response } from 'express';
+
+import { AppDataSource } from '../db';
+import FileRepository from '../db/repositories/filesRepository';
+import { countUniqueWords, countWords, findTopKWords } from '../utils';
+
+const OPTION_ACTION_MAP:any={
+    "countWords":countWords,
+    "countUniqueWords":countUniqueWords,
+    "findTopKWords":findTopKWords
+}
 
 
 const uploadFileController = async (req: Request, res: Response) => {
@@ -35,9 +42,21 @@ const analyzeFileController = async (req: Request, res: Response) => {
             return res.status(400).json({ error: 'No file found' });
         }
         const {filePath}=fileFromDb;
+        const fs = require('node:fs');
         const data = fs.readFileSync(filePath, 'utf8');
-        return res.json({fileFromDb})
+        const action=OPTION_ACTION_MAP[operation];
+
+        if(!action){
+            return res.status(400).json({error:'Pass valid operation'})
+        }
+
+        const result=action(data,options);
+        if(result.error){
+             return res.status(400).json({error:result.error})
+        }
+        return res.json({result:  result})
     } catch (error) {
+        console.log(error)
         res.status(500).json({error:error})
     }
 }

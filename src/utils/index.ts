@@ -1,4 +1,4 @@
-import { WORD_REGX } from "../constants";
+import { WORD_REGX } from '../constants';
 
 export const countWords=(content:string)=>{
     return  content.split(WORD_REGX).length;
@@ -9,7 +9,11 @@ export const countUniqueWords=(content:string)=>{
    return Array.from(uniqueWords).length;
 }
 
-export const findTopKWords=(content:string,options:any)=>{
+export const findTopKWords=(content:string,options:TopFreqOption)=>{
+
+    if(!options){
+    return ({error:"Please provide valid options"})
+    }
     const wordFrequency: Record<string, number> = {};
     content.split(/\s+/).forEach((word) => {
         wordFrequency[word] = (wordFrequency[word] || 0) + 1;
