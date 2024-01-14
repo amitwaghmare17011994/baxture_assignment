@@ -32,7 +32,7 @@
 - npm run test -- --coverage
 
 ## API Endpoints
-| HTTP Verbs | Endpoints | Action | Parameters/Body/Form
+| Method | Endpoints | Action | Parameters/Body/Form
 | ------ | --- | --- | ------------------------------- |
 | POST | /upload | To upload text file   | Form Data field name = "file" 
 | POST | /analyze/:fileId | To perform operation on text content | operation = countWords / countUniqueWords / findTopKWords ///n options ={k:number}
