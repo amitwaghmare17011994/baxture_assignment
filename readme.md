@@ -1,16 +1,16 @@
 # Text File Analyzer 
 
-##ORM
+## ORM
 \nTypeOrm
 
 
-##Installation
-\nnpm i
+## Installation
+- npm i
 
-Start Server
-npm run dev
+## Start Server
+- npm run dev
 
-Run Tests With Coverage
-npm run test -- --coverage
+## Run Tests With Coverage
+- npm run test -- --coverage
 
 
