@@ -1,4 +1,4 @@
-import { countWords,countUniqueWords, removePunctuation } from ".";
+import { countWords,countUniqueWords, removePunctuation ,findTopKWords} from ".";
 
 describe('countWords', () => {
     it('should return 0 for an empty string', () => {
@@ -45,3 +45,38 @@ describe('countWords', () => {
     });
   
   });
+
+
+
+
+describe('findTopKWords', () => {
+    it('returns the top K most frequent words', () => {
+        const content = 'apple banana apple orange banana grape banana';
+        const options = { k: 2 };
+        const expectedOutput = [
+            { word: 'banana', frequency: 3 },
+            { word: 'apple', frequency: 2 },
+        ];
+
+        const result = findTopKWords(content, options);
+
+        expect(result).toEqual(expectedOutput);
+    })
+
+    it('returns an error when no options are provided', () => {
+        const content = 'apple banana apple orange banana grape banana';
+        const result = findTopKWords(content, undefined);
+    
+        expect(result).toEqual({ error: 'Please provide valid options' });
+      });
+    
+      it('returns an error when options.k is not provided', () => {
+        const content = 'apple banana apple orange banana grape banana';
+        const options = { foo: 'bar' };
+        //@ts-ignore
+        const result = findTopKWords(content, options);
+    
+        expect(result).toEqual({ error: 'Please provide valid frequency count (k)' });
+      });
+    
+})
