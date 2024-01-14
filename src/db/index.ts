@@ -1,7 +1,8 @@
+import dotenv from 'dotenv';
 import FilesEntity from '@entities/Files'
 import TasksEntity from '@entities/Tasks'
 import {DataSource} from 'typeorm'
-  
+
 const AppDataSource = new DataSource({
     type: "postgres",
     host: process.env.DB_HOST,
