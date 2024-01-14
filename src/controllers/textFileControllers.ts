@@ -40,14 +40,14 @@ const analyzeFileController = async (req: Request, res: Response) => {
         const fileRepository = new FileRepository({ dataSource: AppDataSource })
         const fileFromDb = await fileRepository.getFileById(parseInt(fileId))
         if (!fileFromDb) {
-            return res.status(400).json({ error: 'No file found' });
+            return res.status(400).json({ error: 'File not found' });
         }
         const { filePath } = fileFromDb;
         const fs = require('node:fs');
         const data = fs.readFileSync(filePath, 'utf8');
         const action = OPTION_ACTION_MAP[operation];
 
-        if (!action) {
+        if (!operation || !action) {
             return res.status(400).json({ error: 'Pass valid operation' })
         }
 
@@ -63,7 +63,7 @@ const analyzeFileController = async (req: Request, res: Response) => {
             result: JSON.stringify({ result })
         })
 
-        return res.json({ id: taskResponse.raw[0].id })
+        return res.status(200).json({ id: taskResponse.raw[0].id })
     } catch (error) {
         console.log(error)
         res.status(500).json({ error: error })
@@ -77,7 +77,7 @@ const fileResulstsController = async (req: Request, res: Response) => {
     if (!task) {
         return res.status(400).json({ error: 'Task not found' });
     }
-    res.json({ result: task })
+    res.status(200).json({ result: task })
 }
 
 export const textFileControllers = {
