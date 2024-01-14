@@ -1,4 +1,4 @@
-import { PUNCTUATION_REGX, WORD_REGX } from '../constants';
+import { PUNCTUATION_REGX, WORD_REGX } from '@constants/index';
 
 export const removePunctuation = (word: string) => {
     // Remove common punctuation characters
@@ -51,7 +51,7 @@ export const findTopKWords = (content: string, options?: TopFreqOption) => {
         return ({ error: "Please provide valid options" })
     }
 
-    if(!options.k){
+    if (!options.k) {
         return ({ error: "Please provide valid frequency count (k)" })
     }
 
@@ -69,4 +69,3 @@ export const findTopKWords = (content: string, options?: TopFreqOption) => {
 
     return result
 }
- 

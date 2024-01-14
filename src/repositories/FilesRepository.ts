@@ -1,7 +1,7 @@
-import { Entity, Repository } from 'typeorm';
-import { DataSource } from 'typeorm';
-import FilesEntity from '../entities/Files';
- 
+import { DataSource, Repository } from 'typeorm';
+
+import FilesEntity from '@entities/Files';
+
 interface FileRepositoryProps {
     dataSource: DataSource
 }
@@ -18,14 +18,14 @@ class FileRepository {
         const files = await this.filesRepository.find();
         return files;
     }
-    
-    async saveFile(file:FilePayload){
-        const res=await this.filesRepository.insert(file);
+
+    async saveFile(file: FilePayload) {
+        const res = await this.filesRepository.insert(file);
         return res;
     }
 
-    async getFileById(id:number){
-        const res=await this.filesRepository.findOneBy({id:id});
+    async getFileById(id: number) {
+        const res = await this.filesRepository.findOneBy({ id: id });
         return res;
     }
 

@@ -1,6 +1,7 @@
 import { DataSource, Repository } from 'typeorm';
-import TasksEntity from '../entities/Tasks';
- 
+
+import TasksEntity from '@entities/Tasks';
+
 interface TaskRepositoryProps {
     dataSource: DataSource
 }
@@ -17,14 +18,14 @@ class TaskRepository {
         const tasks = await this.tasksRepository.find();
         return tasks;
     }
-    
-    async saveTask(task:TaskPayload){
-        const res=await this.tasksRepository.insert(task);
+
+    async saveTask(task: TaskPayload) {
+        const res = await this.tasksRepository.insert(task);
         return res;
     }
 
-    async getTaskById(id:number){
-        const res=await this.tasksRepository.findOneBy({id:id});
+    async getTaskById(id: number) {
+        const res = await this.tasksRepository.findOneBy({ id: id });
         return res;
     }
 

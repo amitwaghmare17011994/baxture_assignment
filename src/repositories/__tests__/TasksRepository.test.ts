@@ -1,7 +1,8 @@
 import { DataSource, EntityRepository, Repository } from 'typeorm';
- import TasksEntity from '../../entities/Tasks';
-import TaskRepository from '../TasksRepository';
- 
+
+import TasksEntity from '@entities/Tasks';
+import TaskRepository from '@repositories/TasksRepository';
+
 jest.mock('typeorm', () => ({
     ...jest.requireActual('typeorm'),
     EntityRepository: jest.fn(),

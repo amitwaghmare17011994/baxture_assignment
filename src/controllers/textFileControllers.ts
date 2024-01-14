@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
-import { countUniqueWords, countWords, findTopKWords } from '../utils';
 import { DataSource } from 'typeorm';
-import FileRepository from '../repositories/FilesRepository';
-import TaskRepository from '../repositories/TasksRepository';
+
+import FileRepository from '@repositories/FilesRepository';
+import TaskRepository from '@repositories/TasksRepository';
+import { countUniqueWords, countWords, findTopKWords } from '@utils/index';
 
 const OPTION_ACTION_MAP: any = {
     "countWords": countWords,
@@ -14,10 +15,11 @@ const OPTION_ACTION_MAP: any = {
 class TextFileControllers {
     AppDataSource: DataSource
 
-    constructor(props:{AppDataSource:DataSource}){
-        this.AppDataSource=props.AppDataSource
+    constructor(props: { AppDataSource: DataSource }) {
+        this.AppDataSource = props.AppDataSource
     }
-      uploadFileController=async(req: Request, res: Response)=> {
+    
+    uploadFileController = async (req: Request, res: Response) => {
         try {
             if (!req.file) {
                 return res.status(400).json({ error: 'No file uploaded' });
@@ -39,11 +41,11 @@ class TextFileControllers {
         }
     }
 
-      analyzeFileController=async(req: Request, res: Response) =>{
+    analyzeFileController = async (req: Request, res: Response) => {
         try {
             const { fileId } = req.params;
             const { operation, options } = req.body || {};
-            const fileRepository = new FileRepository({ dataSource: this.AppDataSource  })
+            const fileRepository = new FileRepository({ dataSource: this.AppDataSource })
             const fileFromDb = await fileRepository.getFileById(parseInt(fileId))
             if (!fileFromDb) {
                 return res.status(400).json({ error: 'File not found' });
@@ -61,7 +63,7 @@ class TextFileControllers {
             if (result.error) {
                 return res.status(400).json({ error: result.error })
             }
-            const taskRepository = new TaskRepository({ dataSource: this.AppDataSource  })
+            const taskRepository = new TaskRepository({ dataSource: this.AppDataSource })
 
             const taskResponse = await taskRepository.saveTask({
                 operation: operation,
@@ -78,10 +80,10 @@ class TextFileControllers {
 
     }
 
-      fileResulstsController=async(req: Request, res: Response) =>{
+    fileResulstsController = async (req: Request, res: Response) => {
         try {
             const { taskId } = req.params;
-            const taskRepository = new TaskRepository({ dataSource: this.AppDataSource  })
+            const taskRepository = new TaskRepository({ dataSource: this.AppDataSource })
             const task = await taskRepository.getTaskById(parseInt(taskId))
             if (!task) {
                 return res.status(400).json({ error: 'Task not found' });

@@ -1,13 +1,13 @@
 import { Response, Request } from 'express';
  
-import TextFileControllers from '../TextFileControllers';
-import { AppDataSource } from '../../db';
-import FileRepository from '../../repositories/FilesRepository';
-import TaskRepository from '../../repositories/TasksRepository';
+import TextFileControllers from '@controllers/TextFileControllers';
+import AppDataSource  from '@db/index';
+import FileRepository from '@repositories/FilesRepository';
+import TaskRepository from '@repositories/TasksRepository';
 
-jest.mock('../../db'); // Mock AppDataSource
-jest.mock('../../repositories/FilesRepository'); // Mock FileRepository
-jest.mock('../../repositories/TasksRepository'); // Mock FileRepository
+jest.mock('@db/index'); // Mock AppDataSource
+jest.mock('@repositories/FilesRepository'); // Mock FileRepository
+jest.mock('@repositories/TasksRepository'); // Mock TaskRepository
 
 const textFileControllers = new TextFileControllers({AppDataSource:AppDataSource});
 describe('analyzeFileController', () => {
