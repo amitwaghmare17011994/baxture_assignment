@@ -21,6 +21,10 @@ const port = process.env.PORT || 3000;
 // Set up Multer for file uploads
  const storage=multer.diskStorage({
   destination: (req, file, cb) => {
+    const fs = require('node:fs');
+    if (!fs.existsSync(FILE_UPLOAD_PATH)) {
+      fs.mkdirSync(FILE_UPLOAD_PATH);
+    }
     cb(null, FILE_UPLOAD_PATH)
   },
   filename: (req, file, cb) => {
