@@ -1,4 +1,4 @@
-# Text File Analyzer 
+# Text File Analyzer (Express, TypeOrm, Jest, Multer)
 
 ## ORM
 - TypeOrm
@@ -12,5 +12,12 @@
 
 ## Run Tests With Coverage
 - npm run test -- --coverage
+
+## Controllers
+- TextControllers
+
+## Repositories
+- FilesRepository
+- TasksRepository
 
 
