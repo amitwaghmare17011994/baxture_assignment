@@ -1,6 +1,6 @@
 import { Response, Request } from 'express';
  
-import TextFileControllers from '@controllers/TextFileControllers';
+import TextFileControllers from '@controllers/TextFileAnalyzeControllers';
 import AppDataSource  from '@db/index';
 import FileRepository from '@repositories/FilesRepository';
 import TaskRepository from '@repositories/TasksRepository';

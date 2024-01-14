@@ -6,7 +6,7 @@ import express, { Express } from 'express';
 import multer from 'multer';
 
 import { ALLWED_FILE_TYPES, FILE_UPLOAD_PATH } from '@constants/index';
-import TextFileControllers from '@controllers/TextFileControllers';
+import TextFileControllers from '@controllers/TextFileAnalyzeControllers';
 import AppDataSource from '@db/index';
 
 dotenv.config();
