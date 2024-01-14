@@ -35,7 +35,7 @@
 | Method | Endpoint | Action | Parameters/Body/Form
 | ------ | --- | --- | ------------------------------- |
 | POST | /upload | To upload text file   | Form Data field name = "file" 
-| POST | /analyze/:fileId | To perform operation on text content | operation = countWords / countUniqueWords / findTopKWords                         options ={k:number}
+| POST | /analyze/:fileId | To perform operation on text content | operation = countWords / countUniqueWords / findTopKWords , - options = {k:number}
 | GET | /results/:taskId | To retrieve result using taskId | taskId
  
 
