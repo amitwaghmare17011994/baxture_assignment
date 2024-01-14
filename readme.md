@@ -3,8 +3,8 @@
 ## ORM
 - TypeOrm
 
-
 ## Installation
+- cd baxture_assignment
 - npm i
 
 ## Start Server
