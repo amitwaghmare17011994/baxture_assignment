@@ -17,7 +17,7 @@
 [TextControllers](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/controllers/textFileControllers.ts)
 
 ## Repositories
-- FilesRepository
-- TasksRepository
+[FilesRepository](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/repositories/FilesRepository.ts)
+[TasksRepository](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/repositories/TasksRepository.ts)
 
 
