@@ -1,4 +1,4 @@
-# Text File Analyzer (Express, TypeOrm, Jest, Multer, PostgreSQL)
+# Text File Analyzer (Express, TypeScript, TypeOrm, Jest, Multer, PostgreSQL)
 
 
   ![TextAnalyzer drawio](https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/6d231cfa-f2fd-4bd8-bd33-be263b2dbb71)
