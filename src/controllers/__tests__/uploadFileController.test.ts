@@ -52,4 +52,34 @@ describe('uploadFileController', () => {
         expect(mockResponse.status).toHaveBeenCalledWith(400);
         expect(mockResponse.json).toHaveBeenCalledWith({ error: 'No file uploaded' });
     });
+    it('handles 500 internal server error',async ()=>{
+        const mockFile = {
+            originalname: Date.now() + "-" + 'test-file.txt',
+            path: '/src/uploads/test-file.txt',
+        };
+
+        const mockRequest = {
+            file: mockFile,
+        } as unknown as Request;
+
+        const mockResponse = {
+            status: jest.fn(() => mockResponse),
+            json: jest.fn(),
+        } as unknown as Response;
+
+        const mockFileRepository = {
+            saveFile: jest.fn().mockImplementation(()=>{
+                throw new Error('DB error');
+            })
+             
+        };
+
+        // @ts-ignore
+        FileRepository.mockImplementation(() => mockFileRepository);
+
+        await textFileControllers.uploadFileController(mockRequest, mockResponse);
+        expect(mockResponse.status).toHaveBeenCalledWith(500);
+        expect(mockResponse.json).toHaveBeenCalledWith({error:'DB error'})
+
+    })
 })

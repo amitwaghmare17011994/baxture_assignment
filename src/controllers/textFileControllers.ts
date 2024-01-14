@@ -29,7 +29,8 @@ const uploadFileController = async (req: Request, res: Response) => {
         const fileResponse = await fileRepository.saveFile(filePayload)
         return res.status(200).json({ id: fileResponse.raw[0].id })
     } catch (error) {
-        return res.status(500).json({ error: error || 'Internal Server Error' });
+        //@ts-ignore
+        return res.status(500).json({ error: error?.message || 'Internal Server Error' });
     }
 }
 
@@ -65,8 +66,8 @@ const analyzeFileController = async (req: Request, res: Response) => {
 
         return res.status(200).json({ id: taskResponse.raw[0].id })
     } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: error })
+        //@ts-ignore
+         res.status(500).json({ error: error?.message || 'Internal Server Error' })
     }
 }
 
