@@ -28,8 +28,7 @@ const port = process.env.PORT || 3000;
   },
 })
 const upload = multer({ storage: storage,fileFilter:(req, file, cb) => {
-  console.log('type',file.mimetype,file)
-  if (!ALLWED_FILE_TYPES.includes(file.mimetype)) {
+   if (!ALLWED_FILE_TYPES.includes(file.mimetype)) {
     return cb(new Error('file is not allowed'))
   }
   cb(null, true)
