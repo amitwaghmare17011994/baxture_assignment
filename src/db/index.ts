@@ -1,5 +1,6 @@
 import {DataSource} from 'typeorm'
 import FilesEntity from './entities/files'
+import TasksEntity from './entities/tasks'
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -10,7 +11,7 @@ export const AppDataSource = new DataSource({
     database: "baxture_assignment",
     synchronize: true,
     logging: true,
-    entities: [FilesEntity],
+    entities: [FilesEntity,TasksEntity],
     subscribers: [],
     migrations: [],
 })

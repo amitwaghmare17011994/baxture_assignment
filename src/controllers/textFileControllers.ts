@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 
 import { AppDataSource } from '../db';
 import FileRepository from '../db/repositories/filesRepository';
+import TaskRepository from '../db/repositories/tasksRepository';
 import { countUniqueWords, countWords, findTopKWords } from '../utils';
 
 const OPTION_ACTION_MAP:any={
@@ -54,15 +55,29 @@ const analyzeFileController = async (req: Request, res: Response) => {
         if(result.error){
              return res.status(400).json({error:result.error})
         }
-        return res.json({result:  result})
+        const taskRepository = new TaskRepository({ dataSource: AppDataSource })
+
+        const taskResponse = await taskRepository.saveTask({
+            operation:operation,
+            options:options?JSON.stringify(options):"",
+            result:JSON.stringify({result})
+        })
+
+        return res.json({id:taskResponse.raw[0].id})
     } catch (error) {
         console.log(error)
         res.status(500).json({error:error})
     }
 }
 
-const fileResulstsController = (req: Request, res: Response) => {
-    res.json({})
+const fileResulstsController =async (req: Request, res: Response) => {
+    const { taskId } = req.params;
+    const taskRepository = new TaskRepository({ dataSource: AppDataSource })
+    const task=await taskRepository.getTaskById(parseInt(taskId))
+    if(!task){
+        return res.status(400).json({ error: 'Task not found' });
+    }
+    res.json({result:task})
 }
 
 export const textFileControllers = {
