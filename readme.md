@@ -1,7 +1,7 @@
 # Text File Analyzer 
 
 ## ORM
-\nTypeOrm
+- TypeOrm
 
 
 ## Installation
