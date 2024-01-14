@@ -1,7 +1,7 @@
 import { DataSource, EntityRepository, Repository } from 'typeorm';
- import FilesEntity from '../../entities/files';
-import FileRepository from '../filesRepository';
-
+ import FileRepository from '../FilesRepository';
+import FilesEntity from '../../entities/Files';
+ 
 jest.mock('typeorm', () => ({
   ...jest.requireActual('typeorm'),
   EntityRepository: jest.fn(),

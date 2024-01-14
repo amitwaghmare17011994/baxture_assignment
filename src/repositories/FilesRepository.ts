@@ -1,7 +1,7 @@
 import { Entity, Repository } from 'typeorm';
 import { DataSource } from 'typeorm';
-import FilesEntity from '../entities/files';
-
+import FilesEntity from '../entities/Files';
+ 
 interface FileRepositoryProps {
     dataSource: DataSource
 }

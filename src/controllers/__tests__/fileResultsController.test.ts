@@ -1,11 +1,15 @@
 import { Response, Request } from 'express';
-import TaskRepository from '../../db/repositories/tasksRepository';
-import { textFileControllers } from '../textFileControllers';
+ import TextFileControllers from '../TextFileControllers';
+import { AppDataSource } from '../../db';
+
+ import TaskRepository from '../../repositories/TasksRepository';
 
 jest.mock('../../db'); // Mock AppDataSource
-jest.mock('../../db/repositories/tasksRepository'); // Mock FileRepository
+jest.mock('../../repositories/TasksRepository'); // Mock FileRepository
+ 
+const textFileControllers = new TextFileControllers({AppDataSource:AppDataSource});
 
-describe('fileResulstsController', () => {
+describe('fileResultsController', () => {
     it('returns error with 400 code Task not found', async () => {
         const mockRequest = {
             params: { taskId: '1' },
@@ -53,5 +57,35 @@ describe('fileResulstsController', () => {
         await textFileControllers.fileResulstsController(mockRequest, mockResponse);
         expect(mockResponse.status).toHaveBeenCalledWith(200);
         expect(mockResponse.json).toHaveBeenCalledWith({ result: taskObj });
+    })
+
+    it('handles 500 internal server error',async ()=>{
+        const mockRequest = {
+            params: { taskId: '1' },
+            body: {}
+        } as unknown as Request;
+
+        const mockResponse = {
+            status: jest.fn(() => mockResponse),
+            json: jest.fn(),
+        } as unknown as Response;
+        const taskObj = {
+            id: 1,
+            operation: 'countWords',
+            options: '',
+            result: 11
+        }
+        const mockTaskRepository = {
+            getTaskById: jest.fn().mockImplementation(()=>{
+                throw new Error('DB Error')
+            }),
+        };
+
+        // @ts-ignore
+        TaskRepository.mockImplementation(() => mockTaskRepository);
+        await textFileControllers.fileResulstsController(mockRequest, mockResponse);
+        expect(mockResponse.status).toHaveBeenCalledWith(500);
+        expect(mockResponse.json).toHaveBeenCalledWith({ error: 'DB Error' });
+
     })
 })

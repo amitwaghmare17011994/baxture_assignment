@@ -5,9 +5,9 @@ import dotenv from 'dotenv';
 import express, { Express } from 'express';
 import multer from 'multer';
 
-import { textFileControllers } from './controllers/textFileControllers';
+import TextFileControllers from './controllers/TextFileControllers';
 import { AppDataSource } from './db';
-
+ 
 dotenv.config();
 
 
@@ -29,6 +29,7 @@ const port = process.env.PORT || 3000;
 const upload = multer({ storage: storage });
 
 
+const textFileControllers = new TextFileControllers({AppDataSource:AppDataSource});
 
 app.post('/upload',upload.single('file'),textFileControllers.uploadFileController)
 app.post('/analyze/:fileId',textFileControllers.analyzeFileController)

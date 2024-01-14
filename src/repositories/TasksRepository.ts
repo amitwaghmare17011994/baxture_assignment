@@ -1,6 +1,6 @@
 import { DataSource, Repository } from 'typeorm';
-import TasksEntity from '../entities/tasks';
-
+import TasksEntity from '../entities/Tasks';
+ 
 interface TaskRepositoryProps {
     dataSource: DataSource
 }

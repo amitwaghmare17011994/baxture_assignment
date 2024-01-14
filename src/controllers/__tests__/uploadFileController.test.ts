@@ -1,9 +1,13 @@
 import { Response, Request } from 'express';
-import FileRepository from '../../db/repositories/filesRepository';
-import { textFileControllers } from '../textFileControllers';
+ import TextFileControllers from '../TextFileControllers';
+import { AppDataSource } from '../../db';
 
+import FileRepository from '../../repositories/FilesRepository';
+ 
 jest.mock('../../db'); // Mock AppDataSource
-jest.mock('../../db/repositories/filesRepository'); // Mock FileRepository
+jest.mock('../../repositories/FilesRepository'); // Mock FileRepository
+ 
+const textFileControllers = new TextFileControllers({AppDataSource:AppDataSource});
 
 describe('uploadFileController', () => {
     it('uploads a file and returns the file ID', async () => {

@@ -1,7 +1,7 @@
 import {DataSource} from 'typeorm'
-import FilesEntity from './entities/files'
-import TasksEntity from './entities/tasks'
-
+import FilesEntity from '../entities/Files'
+import TasksEntity from '../entities/Tasks'
+ 
 export const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost",

@@ -1,12 +1,15 @@
 import { Response, Request } from 'express';
-import FileRepository from '../../db/repositories/filesRepository';
-import TaskRepository from '../../db/repositories/tasksRepository';
+ 
+import TextFileControllers from '../TextFileControllers';
+import { AppDataSource } from '../../db';
+import FileRepository from '../../repositories/FilesRepository';
+import TaskRepository from '../../repositories/TasksRepository';
 
-import { textFileControllers } from '../textFileControllers';
 jest.mock('../../db'); // Mock AppDataSource
-jest.mock('../../db/repositories/filesRepository'); // Mock FileRepository
-jest.mock('../../db/repositories/tasksRepository'); // Mock FileRepository
+jest.mock('../../repositories/FilesRepository'); // Mock FileRepository
+jest.mock('../../repositories/TasksRepository'); // Mock FileRepository
 
+const textFileControllers = new TextFileControllers({AppDataSource:AppDataSource});
 describe('analyzeFileController', () => {
 
     it('returns error with 400 code file not found', async () => {
