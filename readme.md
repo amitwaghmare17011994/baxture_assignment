@@ -1,11 +1,11 @@
 # Text File Analyzer 
 
-ORM
-TypeOrm
+##ORM
+\nTypeOrm
 
 
-Installation
-npm i
+##Installation
+\nnpm i
 
 Start Server
 npm run dev
