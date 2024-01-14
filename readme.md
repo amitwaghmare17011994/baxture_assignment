@@ -1,8 +1,8 @@
-# Text File Analyzer (Express, TypeOrm, Jest, Multer, Postgres)
+# Text File Analyzer (Express, TypeOrm, Jest, Multer, PostgreSQL)
 
 
-## DB
-- DATABASE=Postgres
+## Database Configuration
+- DATABASE=PostgreSQL
 - DB_HOST=localhost
 - DB_PORT=5432
 - DB_USERNAME=root
@@ -24,10 +24,20 @@
 - npm run test -- --coverage
 
 ## Controllers
-[TextFileAnalyzeControllers](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/controllers/TextFileAnalyzeControllers.ts)
+
+- [TextFileAnalyzeControllers](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/controllers/TextFileAnalyzeControllers.ts)
 
 ## Repositories
-[FilesRepository](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/repositories/FilesRepository.ts)
-[TasksRepository](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/repositories/TasksRepository.ts)
+
+- [FilesRepository](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/repositories/FilesRepository.ts)
+
+- [TasksRepository](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/repositories/TasksRepository.ts)
+
+## Entities
+
+- [FilesEntity](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/entities/Files.ts)
+
+- [TasksEntity](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/entities/Tasks.ts)
+
 
 
