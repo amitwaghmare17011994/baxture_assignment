@@ -24,6 +24,11 @@ class FileRepository {
         return res;
     }
 
+    async getFileById(id:number){
+        const res=await this.filesRepository.findOneBy({id:id});
+        return res;
+    }
+
 }
 
 export default FileRepository
