@@ -31,6 +31,15 @@
 ## Run Tests With Coverage
 - npm run test -- --coverage
 
+## API Endpoints
+| HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
+| POST | /upload | To upload text file (Form Data field name ="file" )|
+| POST | /analyze/:fileId | To perform operation on text content {operation:'countWords' | 'countUniqueWords' | 'findTopKWords',options:{k:number} }|
+| GET | /results/:taskId | To retrieve result using taskId |
+ 
+
+
 ## Controllers
 
 - [TextFileAnalyzeControllers](https://github.com/amitwaghmare17011994/baxture_assignment/blob/main/src/controllers/TextFileAnalyzeControllers.ts)
