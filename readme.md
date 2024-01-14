@@ -1,7 +1,7 @@
 # Text File Analyzer (Express, TypeOrm, Jest, Multer, Postgres)
 
 
-## DB
+## Database Configuration
 - DATABASE=Postgres
 - DB_HOST=localhost
 - DB_PORT=5432
