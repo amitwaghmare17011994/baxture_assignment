@@ -29,11 +29,16 @@ const port = process.env.PORT || 3000;
 const upload = multer({ storage: storage });
 
 
+
+// TextFileControllers Object
 const textFileControllers = new TextFileControllers({AppDataSource:AppDataSource});
 
+
+// Routes
 app.post('/upload',upload.single('file'),textFileControllers.uploadFileController)
 app.post('/analyze/:fileId',textFileControllers.analyzeFileController)
 app.get('/results/:taskId',textFileControllers.fileResulstsController)
+// Routes
 
  
 
