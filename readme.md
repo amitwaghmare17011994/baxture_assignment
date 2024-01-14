@@ -1,4 +1,14 @@
-# Text File Analyzer (Express, TypeOrm, Jest, Multer)
+# Text File Analyzer (Express, TypeOrm, Jest, Multer, Postgres)
+
+
+## DB
+- DATABASE=Postgres
+- DB_HOST=localhost
+- DB_PORT=5432
+- DB_USERNAME=root
+- DB_PASSWORD=root
+- DB_NAME=baxture_assignment
+- PORT=3000
 
 ## ORM
 - TypeOrm
