@@ -2,11 +2,10 @@
 
 
  
-![arc](https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/7cd1d521-b77b-4298-8aa5-f137b401fbd0)
-
+ <center> 
  
 <img src="https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/7cd1d521-b77b-4298-8aa5-f137b401fbd0"/>
-
+</center>
 
 ## Database Configuration
 - DATABASE=PostgreSQL
