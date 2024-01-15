@@ -31,6 +31,12 @@
 ## Run Tests With Coverage
 - npm run test -- --coverage
 
+<img width="695" alt="Screenshot 2024-01-15 at 11 24 30 AM" src="https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/a592ca9c-4fc6-4977-a9f0-c126d1301faf">
+
+
+
+
+
 ## API Endpoints
 | Method | Endpoint | Action | Parameters/Body/Form
 | ------ | --- | --- | ------------------------------- |
