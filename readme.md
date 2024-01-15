@@ -1,13 +1,10 @@
 # Text File Analyzer (Express, TypeScript, TypeOrm, Jest, Multer, PostgreSQL)
 
 
-  ![TextAnalyzer drawio](https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/6d231cfa-f2fd-4bd8-bd33-be263b2dbb71)
  
-
-
-
-
-
+<p align="center"> 
+<img src="https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/7cd1d521-b77b-4298-8aa5-f137b401fbd0"/>
+</p>
 
 ## Database Configuration
 - DATABASE=PostgreSQL
@@ -30,6 +27,12 @@
 
 ## Run Tests With Coverage
 - npm run test -- --coverage
+
+<img width="695" alt="Screenshot 2024-01-15 at 11 24 30 AM" src="https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/a592ca9c-4fc6-4977-a9f0-c126d1301faf">
+
+
+
+
 
 ## API Endpoints
 | Method | Endpoint | Action | Parameters/Body/Form
