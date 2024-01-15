@@ -2,10 +2,10 @@
 
 
  
+![arc](https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/7cd1d521-b77b-4298-8aa5-f137b401fbd0)
 
-<img width="695" alt="Screenshot 2024-01-15 at 11 24 30 AM" src=" https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/6d231cfa-f2fd-4bd8-bd33-be263b2dbb71">
-
-
+ 
+<img src="https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/7cd1d521-b77b-4298-8aa5-f137b401fbd0"/>
 
 
 ## Database Configuration
