@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
 
 @Entity("tasks")
   class TasksEntity {
@@ -15,6 +15,11 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
     result: string
 
 
+    @CreateDateColumn()
+    created_at: Date;
+ 
+    @UpdateDateColumn()
+    updated_at: Date;
 }
 
 export default TasksEntity

@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
 
 @Entity("files")
   class FilesEntity {
@@ -10,7 +10,12 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
     @Column({name:'file_path'})
     filePath: string
+
+    @CreateDateColumn()
+    created_at: Date;
  
+    @UpdateDateColumn()
+    updated_at: Date;
 }
 
 export default FilesEntity
