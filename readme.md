@@ -1,10 +1,9 @@
 # Text File Analyzer (Express, TypeScript, TypeOrm, Jest, Multer, PostgreSQL)
 
 
-  ![TextAnalyzer drawio](https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/6d231cfa-f2fd-4bd8-bd33-be263b2dbb71)
  
 
-
+<img width="695" alt="Screenshot 2024-01-15 at 11 24 30 AM" src=" https://github.com/amitwaghmare17011994/baxture_assignment/assets/38164439/6d231cfa-f2fd-4bd8-bd33-be263b2dbb71">
 
 
 
